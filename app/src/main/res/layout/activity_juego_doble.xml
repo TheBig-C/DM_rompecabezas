@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.JuegoDoble"
+    android:id="@+id/lyPrincipal"
+    android:background="@drawable/layout_fondo_pantalla"
+    android:padding="20dp">
+
+    <!-- Contenedor vertical principal -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+
+        <!-- Botones para desordenar y resolver -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btnDesordenar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desordenar"
+                android:textSize="20dp"
+                android:backgroundTint="#EA1919" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnCambiarTurno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambiar de turno"
+                android:layout_below="@id/lyVerticalO"
+                android:layout_centerHorizontal="true"
+                tools:ignore="NotSibling" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ivPista"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Pista"
+                android:src="@drawable/icono_pista" />
+        </LinearLayout>
+
+        <!-- Cronómetros de los jugadores -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/tvCronometroJugador1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugador 1: Tiempo 00:00"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/tvCronometroJugador2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugador 2: Tiempo 00:00"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <!-- Imagen de referencia -->
+        <ImageView
+            android:id="@+id/ivReferencia"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/btnResolver"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="Imagen de referencia"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center" />
+
+        <!-- Contenedor del rompecabezas -->
+        <LinearLayout
+            android:id="@+id/lyVerticalO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivReferencia"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp">
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón para cambiar de turno -->
+     <!-- Oculto hasta que se acabe el turno del jugador 1 -->
+</RelativeLayout>

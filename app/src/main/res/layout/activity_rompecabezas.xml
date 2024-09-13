@@ -1,48 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Rompecabezas"
-    android:id="@+id/lyPrincipal">
+    tools:context=".Views.Rompecabezas"
+    android:id="@+id/lyPrincipal"
+    android:background="@drawable/layout_fondo_pantalla"
+    android:padding="20dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        >
-        <Button
-            android:id="@+id/btnDesordenar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Desrodenar"
-            android:textSize="20dp"
-            android:backgroundTint="#EA1919"/>
-
-
-
-        <Space
-    android:layout_width="10dp"
-    android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnResolver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resolver"
-            android:textSize="20dp"
-            android:backgroundTint="#156151"/>
-
-    </LinearLayout>
+    <!-- Contenedor vertical principal -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
-        android:id="@+id/lyVerticalO">
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
 
+        <!-- Botones para desordenar y resolver -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btnDesordenar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desordenar"
+                android:textSize="20dp"
+                android:backgroundTint="#EA1919" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnResolver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resolver"
+                android:textSize="20dp"
+                android:backgroundTint="#156151" />
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ivPista"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Pista"
+                android:src="@drawable/icono_pista" />
+
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+
+        <!-- Cronómetro -->
+        <TextView
+            android:id="@+id/tvCronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiempo: 00:00"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:layout_below="@id/btnDesordenar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+        <!-- Imagen de referencia -->
+        <ImageView
+            android:id="@+id/ivReferencia"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/btnResolver"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="Imagen de referencia"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            tools:ignore="NotSibling" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+        <!-- Contenedor del rompecabezas -->
+        <LinearLayout
+            android:id="@+id/lyVerticalO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivReferencia"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp">
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

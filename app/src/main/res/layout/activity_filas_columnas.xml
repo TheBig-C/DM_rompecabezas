@@ -3,28 +3,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#ffffff">
+    android:background="@color/backgroundColor"
+    tools:context=".Views.MainActivity"
+    android:padding="20dp">
 
+    <!-- Contenedor principal centrado -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:padding="16dp">
 
-        <EditText
+        <!-- Opción de elegir letras, números o imagen -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccione una opción:"
+            android:textSize="18sp"
+            android:textColor="@color/primaryTextColor" />
+
+        <RadioGroup
+            android:id="@+id/rgOpciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbLetras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Letras"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor" />
+
+            <RadioButton
+                android:id="@+id/rbNumeros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Números"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/rbImagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imagen"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Botón para seleccionar imagen -->
+        <Button
+            android:id="@+id/btnSeleccionarImagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar Imagen"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <!-- Vista previa de la imagen seleccionada -->
+        <ImageView
+            android:id="@+id/ivVistaPrevia"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:scaleType="centerInside" />
+
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Campo de texto de nombre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre jugador:"
+            android:textSize="18sp"
+            android:textColor="@color/primaryTextColor" />
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ingresa el nombre"
-            android:textSize="30dp"
-            android:id="@+id/etNombre"
-            android:inputType="text"/>
+            android:textColorHint="@android:color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="18sp"
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Spinner para seleccionar la dificultad -->
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Selección de dificultad -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +120,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dificultad:"
-                android:textSize="25dp"/>
+                android:textSize="18sp"
+                android:textColor="@color/primaryTextColor" />
 
             <Spinner
                 android:id="@+id/spinnerDificultad"
@@ -43,14 +129,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:spinnerMode="dropdown"/>
+                android:spinnerMode="dropdown"
+                android:backgroundTint="@android:color/black"
+                app:popupTheme="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog" />
         </LinearLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"/>
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-        <!-- Número de filas -->
+        <!-- Selección de columnas -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,37 +150,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Filas:"
-                android:textSize="25dp"/>
+                android:textSize="18sp"
+                android:textColor="@color/primaryTextColor" />
 
             <Button
                 android:id="@+id/btnDecrementarFilas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"/>
+                android:text="-"
+                android:backgroundTint="@color/buttonBackground"
+                android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/etFilas"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="2"
-                android:inputType="number"
-                android:textSize="25dp"
-                android:gravity="center"/>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginHorizontal="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFilasfilas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:inputType="number"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnIncrementarFilas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"/>
+                android:text="+"
+                android:backgroundTint="@color/buttonBackground"
+                android:textColor="@color/white" />
         </LinearLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"/>
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-        <!-- Número de columnas -->
+        <!-- Selección de filas -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,66 +203,79 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Columnas:"
-                android:textSize="25dp"/>
+                android:textSize="18sp"
+                android:textColor="@color/primaryTextColor" />
 
             <Button
                 android:id="@+id/btnDecrementarColumnas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"/>
+                android:text="-"
+                android:backgroundTint="@color/buttonBackground"
+                android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/etColumnas"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="2"
-                android:inputType="number"
-                android:textSize="25dp"
-                android:gravity="center"/>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginHorizontal="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etColumnas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:inputType="number"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnIncrementarColumnas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"/>
+                android:text="+"
+                android:backgroundTint="@color/buttonBackground"
+                android:textColor="@color/white" />
         </LinearLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"/>
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
 
         <!-- Botones de acción -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:gravity="center"
+            android:weightSum="2">
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Enviar"
-                android:textSize="25dp"
+                android:textSize="18sp"
                 android:id="@+id/btInvocar"
-                android:backgroundTint="#242443"
-                android:textColor="#ffffff"
-                android:layout_weight="2"/>
+                android:backgroundTint="@color/primaryColor"
+                android:textColor="@color/white"
+                android:layout_weight="1"/>
 
-            <Space
-                android:layout_width="10dp"
+            <View
+                android:layout_width="8dp"
                 android:layout_height="wrap_content"/>
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Limpiar"
-                android:textSize="25dp"
-                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textColor="@color/white"
                 android:id="@+id/btLimpiar"
-                android:backgroundTint="#265256"
-                android:layout_weight="2"/>
+                android:backgroundTint="@color/secondaryColor"
+                android:layout_weight="1"/>
         </LinearLayout>
 
     </LinearLayout>
