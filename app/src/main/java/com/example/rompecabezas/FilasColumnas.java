@@ -23,7 +23,7 @@ public class FilasColumnas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filas_columnas);
-        etfilas=findViewById(R.id.etFilas);
+        etfilas=findViewById(R.id.etFilasfilas);
         etcoulmnas=findViewById(R.id.etColumnas);
         etnombre=findViewById(R.id.etNombre);
         btndecrementarcolumnas=findViewById(R.id.btnDecrementarColumnas);
